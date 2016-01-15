@@ -1,0 +1,501 @@
+/////////////////////////
+//       COLORS        //
+/////////////////////////
+
+@silver:   #f2f1f1;
+@grey:     #d8d8d8;
+@darkgrey: #606c78;
+@black:    #1f2532;
+@blue:     #4a90e2;
+@petrol:   #be93e7;
+@red:      #e85b0e;
+@green:    #a0da5e;
+
+
+/***********************/
+/*        FONTS        */
+/***********************/
+@font-face {
+  font-family: 'din_alternatemedium';
+  src: url('../fonts/din_alternate_medium-webfont.eot');
+  src: url('../fonts/din_alternate_medium-webfont.eot?#iefix') format('embedded-opentype'),
+     url('../fonts/din_alternate_medium-webfont.woff2') format('woff2'),
+     url('../fonts/din_alternate_medium-webfont.woff') format('woff'),
+     url('../fonts/din_alternate_medium-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'montserratbold';
+  src: url('../fonts/montserrat-bold-webfont.eot');
+  src: url('../fonts/montserrat-bold-webfont.eot?#iefix') format('embedded-opentype'),
+     url('../fonts/montserrat-bold-webfont.woff2') format('woff2'),
+     url('../fonts/montserrat-bold-webfont.woff') format('woff'),
+     url('../fonts/montserrat-bold-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'montserratregular';
+  src: url('../fonts/montserrat-regular-webfont.eot');
+  src: url('../fonts/montserrat-regular-webfont.eot?#iefix') format('embedded-opentype'),
+     url('../fonts/montserrat-regular-webfont.woff2') format('woff2'),
+     url('../fonts/montserrat-regular-webfont.woff') format('woff'),
+     url('../fonts/montserrat-regular-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'montserratultra_light';
+  src: url('../fonts/montserrat-ultralight-webfont.eot');
+  src: url('../fonts/montserrat-ultralight-webfont.eot?#iefix') format('embedded-opentype'),
+     url('../fonts/montserrat-ultralight-webfont.woff2') format('woff2'),
+     url('../fonts/montserrat-ultralight-webfont.woff') format('woff'),
+     url('../fonts/montserrat-ultralight-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+/***********************/
+/*       GENERAL       */
+/***********************/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  font: 14px 'montserratbold', sans-serif;
+  color: @black;
+  background: @silver url(../images/Background_2.png) top left/cover fixed;
+}
+
+.h1 {
+  font: 28px 'montserratbold';
+  letter-spacing: .02em;
+}
+.h2 {
+  font: 20px 'din_alternatemedium';
+  text-transform: uppercase;
+  letter-spacing: .3em;
+}
+.h3 {
+  font: 13px 'montserratregular';
+  letter-spacing: .05em;
+}
+.h4 {
+  font: 10px 'din_alternatemedium';
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+li,
+dl,
+dd,
+dt {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+figure {
+  margin: 0;
+} 
+
+a,
+a:link,
+a:visited,
+a:hover {
+  text-decoration: none;
+  color: @black;
+}
+
+.btn {
+  font-family: 'din_alternatemedium';
+  text-transform: uppercase;
+  display: inline-block;
+  border-radius: 5px;
+  text-align: center;
+  background-color: @red;
+  line-height: 40px;
+  min-width: 212px;
+
+  &.secondary {
+    background-color: @blue;
+  }
+}
+
+.header {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  background: @black;
+
+  .logo {
+    display: block;
+    max-width: 1024px;
+    line-height: 50px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    color: white;
+
+    img {
+      vertical-align: middle;
+      max-height: 32px;
+      padding: 0 14px;
+    }
+  }
+
+  .subnav {
+    position: absolute;
+    z-index: 10;
+    max-width: 1024px;
+    margin: 0 auto;
+    left: 0;
+    padding: 0;
+    right: 0;
+
+    li {
+      width: 50%;
+      display: inline-block;
+
+      a {
+        background-color: @darkgrey;
+        position: relative;
+        display: block;
+        color: white;
+        padding: 25px 0;
+      }
+
+
+      &:nth-of-type(1) {
+
+        a {
+          margin-right: 6px;
+          text-align: right;
+          border-bottom-right-radius: 40px;
+          padding-right: 50px;
+        }
+        a:before {
+          display: inline-block;
+          position: absolute;
+          left: 32px;
+          content: url(../images/Icon_previous.png)
+        }
+      }
+
+      &:nth-of-type(2) {
+
+        a {
+          margin-left: 6px;
+          text-align: left;
+          border-bottom-left-radius: 40px;
+          padding-left: 50px;
+        }
+        a:after {
+          display: inline-block;
+          position: absolute;
+          right: 32px;
+          content: url(../images/Icon_Next.png)
+        }
+      }
+    }
+  }
+}
+
+/***********************/
+/*         GRID        */
+/***********************/
+.wrapper {
+  padding-top: 50px;
+  margin: 0 auto;
+  max-width: 1024px;
+  background-color: white;
+
+  &.detailpage {
+    padding-top: 114px;
+  }
+
+  &.pokedex {
+
+    #endlessscroll {
+      display: none;
+    }
+    #endlessscroll + .list ul {
+      max-height: 69vw;
+      overflow: hidden;
+      transition: 1s ease all;
+    }
+    #endlessscroll:checked + .list .loadmore {
+      display: none;
+    }
+    .loadmore {
+      text-align: center;
+
+      label {
+        margin: 60px 0;
+        cursor: pointer;
+      }
+    }
+    #endlessscroll:checked + .list ul {
+      max-height: none;
+    }
+
+    .grid-cell a {
+      display: block;
+      background-color: @silver;
+      border-radius: 5px;
+      padding: 6px;
+    }
+  }
+
+  &.pokedex > * {
+    margin: 0 60px;
+  }
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.grid-cell {
+  flex: 1;
+}
+.grid--gutters {
+  margin: -13px 0 0 -13px;
+}
+.detailpage .grid--gutters {
+  margin: -13px 0 0 -35px;
+}
+.grid--equalheight > .grid-cell {
+  display: flex;
+}
+.pokedex .grid--gutters > .grid-cell {
+  padding: 46px 0 0 13px;
+}
+.grid--gutters > .grid-cell {
+  padding: 23px 0 0 34px;
+}
+.grid--fit > .grid-cell {
+  flex: 1;
+}
+.grid--full > .grid-cell {
+  flex: 0 0 100%;
+}
+.grid--1of2 > .grid-cell {
+  flex: 0 0 50%
+}
+.grid--1of3 > .grid-cell {
+  flex: 0 0 33.3333%
+}
+.grid--1of4 > .grid-cell {
+  flex: 0 0 25%
+}
+
+
+/***********************/
+/*      TYPOGRAPHY     */
+/***********************/
+
+
+.h1 {
+  padding: 54px 0;
+  text-transform: uppercase;
+}
+
+.detailpage {
+  padding: 0 32px;
+
+  .h1 {
+    text-transform: none;
+    text-align: center;
+    padding: 32px;
+  }
+
+  .avatar {
+    width: 510px;
+
+    figure {
+      position: relative;
+      background-color: @silver;
+      border-radius: 20px;
+      padding-bottom: 50px;
+      overflow: hidden;
+
+
+      .h2 {
+        position: absolute;
+        bottom: 0;
+        width: 50%;
+        line-height: 50px;
+        text-align: center;
+
+        &:nth-of-type(1) {
+          left: 0;
+          background-color: @green;
+          border-top-right-radius: 20px;
+        }
+
+        &:nth-of-type(2) {
+          right: 0;
+          background-color: @petrol;
+          border-top-left-radius: 20px;
+        }
+      }
+    }
+  }
+
+  .measures {
+    padding: 35px;
+    border-radius: 5px;
+    background-color: @blue;
+    color: white;
+
+    li {
+      margin-bottom: 28px;
+    }
+
+    strong {
+      font-family: 'montserratultra_light';
+      display: block;
+      color: #2C2B02;
+    }
+  }
+
+  .baseStats {
+    margin-top: 35px;
+    padding: 25px 25px 80px;
+    border-radius: 10px;
+    background-color: @grey;
+
+    dl {
+      text-align: center;
+
+      dd {
+        width: 14.66666%;
+        margin-right: 2.4%;
+        display: inline-block;
+        padding-top: 100px;
+        background-color: white;
+        font-size: 0;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        &:after {
+          background: @blue;
+          content: '';
+          display: block;
+
+          height: 20px;
+          margin-top: -20px;
+        }
+
+        &:nth-of-type(2n) {
+          left: 16.66666%;
+
+          &:after {
+            height: 33px;
+            margin-top: -33px;
+          }
+        }
+
+        &:nth-of-type(3n) {
+          left: 33.33333%;
+
+          &:after {
+            height: 20px;
+            margin-top: -20px;
+          }
+        }
+
+        &:nth-of-type(4n) {
+          left: 50%;
+
+          &:after {
+            height: 33px;
+            margin-top: -33px;
+          }
+        }
+
+        &:nth-of-type(5n) {
+          left: 66.66666%;
+
+          &:after {
+            height: 33px;
+            margin-top: -33px;
+          }
+        }
+
+        &:nth-of-type(6n) {
+          left: 83.333333%;
+
+          &:after {
+            height: 33px;
+            margin-top: -33px;
+          }
+        }
+      }
+
+      dt {
+        width: 14.66666%;
+        display: inline-block;
+        margin-right: -14.66666%;
+        position: relative;
+        top: 112px;
+        vertical-align: top;
+        font-size: 10px;
+      }
+    }
+  }
+
+  .moves {
+    li {
+      &:nth-of-type(4n+1) {
+        span {
+          background-color: @blue;
+        }
+      }
+      &:nth-of-type(4n+2) {
+        span {
+          background-color: @darkgrey;
+        }
+      }
+      &:nth-of-type(4n+3) {
+        span {
+          background-color: @petrol;
+        }
+      }
+      &:nth-of-type(4n+4) {
+        span {
+          background-color: @green;
+        }
+      }
+    }
+    span {
+      font-weight: 400;
+      display: block;
+      text-align: center;
+      line-height: 36px;
+      border-radius: 5px;
+    }
+  }
+
+  footer {
+    text-align: center;
+    padding: 60px 0;
+  }
+}

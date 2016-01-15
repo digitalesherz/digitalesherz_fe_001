@@ -1,0 +1,86 @@
+extends layout
+
+block append optional-extranav
+  case Number(pokemonId)
+    when 1
+      - var previousPoke = 668;
+    default
+      - var previousPoke = Number(pokemonId)-1;
+
+  - var nextPoke = Number(pokemonId)+1;
+
+  ul.subnav
+    li
+      a(href=(previousPoke)) ##{tabNumber(previousPoke,3)} 
+    li
+      a(href=(nextPoke))  ##{tabNumber(nextPoke,3)}
+
+block content
+
+  .wrapper.detailpage
+
+    h1.h1= "#" + pokemonId + " " + pokedetails.name
+
+    .grid.grid--gutters.grid--1of2
+      .avatar.grid-cell
+        figure
+          img(src="//assets.pokemon.com/assets/cms2/img/pokedex/full/"+ pokemonId + ".png" alt=pokedetails.name)
+        
+          figcaption
+            each abilities in pokedetails.types
+              span.h2= abilities.name
+
+        p Some story about this pokemon I don't know where it comes from!
+
+      .grid-cell
+        aside.measures
+          ul.grid.grid--1of2
+            li.grid-cell Height:
+              strong= pokedetails.exp
+            li.grid-cell Category:
+              strong= pokedetails.species.charAt(0).toUpperCase() + pokedetails.species.slice(1)
+            li.grid-cell Weight:
+              strong= pokedetails.weight
+            li.grid-cell Abilities:
+              strong= pokedetails.abilities[0].name + " " + pokedetails.abilities[1].name
+            li.grid-cell Gender:
+              strong= pokedetails.male_female_ratio
+
+        .baseStats
+          h3.h3 Base Stats
+          dl
+            dt HP
+            dd= pokedetails.hp
+            dt Attack
+            dd= pokedetails.attack
+            dt Defense
+            dd= pokedetails.defense
+            dt Special Attack
+            dd 53
+            dt Special Defense 
+            dd 23
+            // dd= pokedetails.special defense 
+            dt Speed
+            dd= pokedetails.speed
+
+    .moves
+      h3.h3 Moves
+      ul.grid.grid--1of4.grid--gutters
+        each move, index in pokedetails.moves
+          case move.learn_type
+            when "level up"
+              li.grid-cell.level_up
+                span= move.name
+            when "machine"
+              li.grid-cell.machine
+                span= move.name
+            when "egg move"
+              li.grid-cell.egg_move
+                span= move.name
+            when "tutor"
+              li.grid-cell.tutor
+                span= move.name
+
+
+    footer
+      a.btn(href="/") Explore more Pokémon

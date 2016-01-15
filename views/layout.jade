@@ -1,0 +1,26 @@
+- function tabNumber(n,w){
+-   var n_ = Math.abs(n);
+-         var zeros = Math.max(0, w - Math.floor(n_).toString().length );
+-         var zeroString = Math.pow(10,zeros).toString().substr(1);
+-         if( n < 0 ) {
+-                 zeroString = '-' + zeroString;
+-         }
+- 
+-   return zeroString+n;
+- }
+
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    nav.header
+      a.logo(href="/").h3
+        img(src="images/pokeball.png") 
+        | Pokédex
+
+      block optional-extranav
+
+    block content

@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+  .wrapper.pokedex
+    h1.h1 Pokédex
+
+    input(type="checkbox" id="endlessscroll" name="endlessscroll")
+
+    .list
+      ul.allpokemon.grid.grid--gutters.grid--1of4.grid--equalheight
+        each pokemon in json.pokemon
+
+          - var pokeId = pokemon.resource_uri.slice(15, -1)
+          - var tabbedId = tabNumber(pokeId, 3)
+          - var pokeName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)
+
+          li.grid-cell
+            a.h3(href=pokeId title="Details zu "+pokeName)= "#" + tabbedId + " " + pokeName
+              img(src="//assets.pokemon.com/assets/cms2/img/pokedex/detail/"+ tabbedId + ".png")
+              p= pokemon.types
+
+      .loadmore
+        label.btn.secondary(for="endlessscroll") LOAD MORE
