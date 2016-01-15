@@ -48,6 +48,6 @@ This Pokémon-Wiki was created with a simple node.js + express.js + jade + less 
 
 ##### Lizenz
 Copyright © 2016 Honeypot GmbH. All rights reserved.
-
+Version: 1.0.0
 
 **Heinrich Klassen, Frontend Trainee @ SinnerSchrader Deutschland GmbH**
